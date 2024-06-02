@@ -1,15 +1,22 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mysql
-  labels:
-    app: mysql
+  name: mysql-config
 data:
-  primary.cnf: |
-    # Apply this config only on the primary.
+  my.cnf: |
     [mysqld]
-    log-bin    
-  replica.cnf: |
-    # Apply this config only on replicas.
-    [mysqld]
-    super-read-only  
+    log-bin=mysql-bin
+    binlog_format=row
+    gtid_mode=ON
+    enforce_gtid_consistency=ON
+    master-info-repository=TABLE
+    relay-log-info-repository=TABLE
+    log-slave-updates=ON
+    transaction-write-set-extraction=XXHASH64
+    loose-group_replication_bootstrap_group=OFF
+    loose-group_replication_group_name="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+    loose-group_replication_start_on_boot=off
+    loose-group_replication_ip_allowlist="mysql-0.mysql,mysql-1.mysql,mysql-2.mysql"
+    loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
+    loose-group_replication_single_primary_mode=off
+    loose-group_replication_enforce_update_everywhere_checks=ON
