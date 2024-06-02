@@ -5,6 +5,7 @@ metadata:
 data:
   my.cnf: |
     [mysqld]
+    server_id=1
     log-bin=mysql-bin
     binlog_format=row
     gtid_mode=ON
@@ -16,6 +17,7 @@ data:
     loose-group_replication_bootstrap_group=OFF
     loose-group_replication_group_name="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
     loose-group_replication_start_on_boot=off
+    loose-group_replication_local_address="mysql-0.mysql:33061"
     loose-group_replication_ip_allowlist="mysql-0.mysql,mysql-1.mysql,mysql-2.mysql"
     loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
     loose-group_replication_single_primary_mode=off
