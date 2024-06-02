@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mysql-config
 data:
-  my.cnf: |
+  my-0.cnf: |
     [mysqld]
     server_id=1
     log-bin=mysql-bin
@@ -23,4 +23,46 @@ data:
     loose-group_replication_single_primary_mode=off
     loose-group_replication_enforce_update_everywhere_checks=ON
     bind-address="0.0.0.0"
-    report-hosts="mysq-0.mysql"
+    report-hosts="mysql-0.mysql"
+  my-1.cnf: |
+    [mysqld]
+    server_id=2
+    log-bin=mysql-bin
+    binlog_format=row
+    gtid_mode=ON
+    enforce_gtid_consistency=ON
+    master-info-repository=TABLE
+    relay-log-info-repository=TABLE
+    log-slave-updates=ON
+    transaction-write-set-extraction=XXHASH64
+    loose-group_replication_bootstrap_group=OFF
+    loose-group_replication_group_name="889f3753-22e5-436e-b9fd-db3475fdec59"
+    loose-group_replication_start_on_boot=off
+    loose-group_replication_local_address="mysql-1.mysql:33061"
+    loose-group_replication_ip_allowlist="mysql-0.mysql,mysql-1.mysql,mysql-2.mysql"
+    loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
+    loose-group_replication_single_primary_mode=off
+    loose-group_replication_enforce_update_everywhere_checks=ON
+    bind-address="0.0.0.0"
+    report-hosts="mysql-1.mysql"
+  my-2.cnf: |
+    [mysqld]
+    server_id=3
+    log-bin=mysql-bin
+    binlog_format=row
+    gtid_mode=ON
+    enforce_gtid_consistency=ON
+    master-info-repository=TABLE
+    relay-log-info-repository=TABLE
+    log-slave-updates=ON
+    transaction-write-set-extraction=XXHASH64
+    loose-group_replication_bootstrap_group=OFF
+    loose-group_replication_group_name="889f3753-22e5-436e-b9fd-db3475fdec59"
+    loose-group_replication_start_on_boot=off
+    loose-group_replication_local_address="mysql-2.mysql:33061"
+    loose-group_replication_ip_allowlist="mysql-0.mysql,mysql-1.mysql,mysql-2.mysql"
+    loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
+    loose-group_replication_single_primary_mode=off
+    loose-group_replication_enforce_update_everywhere_checks=ON
+    bind-address="0.0.0.0"
+    report-hosts="mysql-2.mysql"
