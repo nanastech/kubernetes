@@ -15,7 +15,7 @@ data:
     log-slave-updates=ON
     transaction-write-set-extraction=XXHASH64
     loose-group_replication_bootstrap_group=OFF
-    loose-group_replication_group_name="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+    loose-group_replication_group_name="aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
     loose-group_replication_start_on_boot=off
     loose-group_replication_local_address="mysql-0.mysql:33061"
     loose-group_replication_ip_allowlist="mysql-0.mysql,mysql-1.mysql,mysql-2.mysql"
