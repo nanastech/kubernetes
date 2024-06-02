@@ -52,6 +52,12 @@ spec:
         - name: config-volume
           mountPath: /etc/mysql/conf.d
           subPath: my.cnf
+      volumes:
+      - name: config-volume
+        configMap:
+          name: mysql-config
+      - name: tmp-volume
+        emptyDir: {}
   volumeClaimTemplates:
   - metadata:
       name: data
@@ -61,9 +67,4 @@ spec:
         requests:
           storage: 10Gi
       storageClassName: "nfs-client"
-  volumes:
-  - name: config-volume
-    configMap:
-      name: mysql-config
-  - name: tmp-volume
-    emptyDir: {}
+
