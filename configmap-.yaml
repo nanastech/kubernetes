@@ -22,7 +22,6 @@ data:
     loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
     loose-group_replication_single_primary_mode=off
     loose-group_replication_enforce_update_everywhere_checks=ON
-    bind-address="0.0.0.0"
     report-hosts="mysql-0.mysql"
   my-1.cnf: |
     [mysqld]
@@ -43,7 +42,6 @@ data:
     loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
     loose-group_replication_single_primary_mode=off
     loose-group_replication_enforce_update_everywhere_checks=ON
-    bind-address="0.0.0.0"
     report-hosts="mysql-1.mysql"
   my-2.cnf: |
     [mysqld]
@@ -64,5 +62,4 @@ data:
     loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
     loose-group_replication_single_primary_mode=off
     loose-group_replication_enforce_update_everywhere_checks=ON
-    bind-address="0.0.0.0"
     report-hosts="mysql-2.mysql"
