@@ -20,3 +20,6 @@ data:
     loose-group_replication_group_seeds="mysql-0.mysql:33061,mysql-1.mysql:33061,mysql-2.mysql:33061"
     loose-group_replication_single_primary_mode=off
     loose-group_replication_enforce_update_everywhere_checks=ON
+    loose-group_replication_ssl_mode=REQUIRED
+    loose-group_replication_recovery_use_ssl=1
+    loose-group_replication_local_address= "0.0.0.0:33061"
